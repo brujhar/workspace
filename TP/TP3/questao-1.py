@@ -11,10 +11,10 @@ def Imprime_total(oTotal):
   oTotal = oTotal.replace('.', ',')
   print(f"\nO valor total da conta, com a taxa de serviço, será de R$ {oTotal}")
 
-def Imprime_rateio(oRateio):
+def Imprime_rateio(oRateio, oClientes):
   oRateio = str("%.2f" % oRateio)
   oRateio = oRateio.replace('.', ',')
-  print(f"\nDividindo a conta por {clientes} cliente(s), cada cliente deverá pagar R$ {oRateio}")
+  print(f"\nDividindo a conta por {oClientes} cliente(s), cada cliente deverá pagar R$ {oRateio}")
 
 #Ler valor do consumo
 while True:
@@ -66,4 +66,4 @@ while True:
 Total = calculo_total(Consumo, TaxaServico)
 Rateio = calculo_rateio(Total, Clientes)
 Imprime_total(Total)
-Imprime_rateio(Rateio)
+Imprime_rateio(Rateio, Clientes)

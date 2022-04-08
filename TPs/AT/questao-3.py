@@ -13,7 +13,6 @@ def geraMsg(percentual, percentualMaximo, tipo, renda):
     msg = "Seus gastos estão dentro da margem recomendada."
     if percentual > percentualMaximo:
         msg = f"Portanto, idealmente, o máximo de sua renda comprometida com {tipo} deveria ser de R$ {calculaValorMaximo(renda, percentualMaximo)}."
-
     return msg
 
 def capturaFloat (texto):
@@ -27,19 +26,15 @@ def capturaFloat (texto):
             print("\nO valor informado não é um número!\nInforme novamente por favor.\n")
             continue
         return aux
-        break
 
-
-percentualMaximoMoradia = 30
-percentualMaximoEducacao = 20
-percentualMaximoTransporte = 15
+tipoGasto = ("moradia", "educação", "transporte")
+percentualGastoMaximo = (30, 20, 15)
+gastosTotais = []
 
 rendaMensalTotal = capturaFloat("Renda mensal total: R$ ")
-gastosTotaisMoradia = capturaFloat("Gastos totais com moradia: R$ ")
-gastosTotaisEducacao= capturaFloat("Gastos totais com educação: R$ ")
-gastosTotaisTransporte= capturaFloat("Gastos totais com transporte: R$ ")
+for p in range(len(tipoGasto)):
+    gastosTotais.append (capturaFloat(f"Gastos totais com {tipoGasto[p]}: R$ "))
 
 print("Diagnóstico:")
-imprimeDiagnostico("moradia", percentualMaximoMoradia, gastosTotaisMoradia, rendaMensalTotal)
-imprimeDiagnostico("educação", percentualMaximoEducacao, gastosTotaisEducacao, rendaMensalTotal)
-imprimeDiagnostico("transporte", percentualMaximoTransporte, gastosTotaisTransporte, rendaMensalTotal)
+for p in range(len(tipoGasto)):
+    imprimeDiagnostico(tipoGasto[p], percentualGastoMaximo[p], gastosTotais[p], rendaMensalTotal)

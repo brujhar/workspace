@@ -35,6 +35,6 @@ rendaMensalTotal = capturaFloat("Renda mensal total: R$ ")
 for p in range(len(tipoGasto)):
     gastosTotais.append (capturaFloat(f"Gastos totais com {tipoGasto[p]}: R$ "))
 
-print("Diagnóstico:")
+print("\nDiagnóstico:")
 for p in range(len(tipoGasto)):
     imprimeDiagnostico(tipoGasto[p], percentualGastoMaximo[p], gastosTotais[p], rendaMensalTotal)
